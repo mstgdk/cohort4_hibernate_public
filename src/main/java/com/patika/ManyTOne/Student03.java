@@ -1,12 +1,9 @@
-package com.patika.oneToMany;
+package com.patika.ManyTOne;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-public class Student02 {
+public class Student03 {
 
     @Id
     private int id;
@@ -17,18 +14,17 @@ public class Student02 {
     @Column(name = "scl_number")
     private int schoolNumber;
 
-
-    @OneToMany
+    @ManyToOne
     @JoinColumn
-    private List<Book> books = new ArrayList<>();
+    private University university;
 
     @Override
     public String toString() {
-        return "Student02{" +
+        return "Student03{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", schoolNumber=" + schoolNumber +
-                ", books=" + books +
+                ", university=" + university +
                 '}';
     }
 
@@ -56,11 +52,11 @@ public class Student02 {
         this.schoolNumber = schoolNumber;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public University getUniversity() {
+        return university;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setUniversity(University university) {
+        this.university = university;
     }
 }

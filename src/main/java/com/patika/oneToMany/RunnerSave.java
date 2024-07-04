@@ -9,9 +9,14 @@ import org.hibernate.cfg.Configuration;
 public class RunnerSave {
     public static void main(String[] args) {
         Student02 st1 = new Student02();
-        st1.setId(2);
+        st1.setId(1);
         st1.setName("mesut");
         st1.setSchoolNumber(123);
+
+        Student02 st2 = new Student02();
+        st2.setId(2);
+        st2.setName("kaan");
+        st2.setSchoolNumber(124);
 
 
 
@@ -19,17 +24,23 @@ public class RunnerSave {
         Book b1 = new Book();
         b1.setId(1);
         b1.setBookName("ince memed");
-        b1.setStudent(st1);
+
 
         Book b2 = new Book();
         b2.setId(2);
         b2.setBookName("1984");
-        b2.setStudent(st1);
+
 
         Book b3 = new Book();
         b3.setId(3);
         b3.setBookName("empati");
-        b3.setStudent(st1);
+
+
+        st1.getBooks().add(b1);
+        st1.getBooks().add(b2);
+        st1.getBooks().add(b3);
+
+
 
 
 
@@ -44,6 +55,7 @@ public class RunnerSave {
         session.beginTransaction();
 
         session.persist(st1);
+        session.persist(st2);
 
         session.persist(b1);
         session.persist(b2);

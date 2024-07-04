@@ -13,16 +13,15 @@ public class Book {
     private String bookName;
 
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "std_iddddddd")
-    private Student02 student;
+    private Student02 student;*/
 
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
                 ", bookName='" + bookName + '\'' +
-                ", student=" + student +
                 '}';
     }
 
@@ -40,13 +39,5 @@ public class Book {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
-    }
-
-    public Student02 getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student02 student) {
-        this.student = student;
     }
 }

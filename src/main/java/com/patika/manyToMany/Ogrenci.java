@@ -1,12 +1,15 @@
-package com.patika.oneToMany;
+package com.patika.manyToMany;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Student02 {
+public class Ogrenci {
 
     @Id
     private int id;
@@ -17,18 +20,16 @@ public class Student02 {
     @Column(name = "scl_number")
     private int schoolNumber;
 
-
-    @OneToMany
-    @JoinColumn
-    private List<Book> books = new ArrayList<>();
+    @ManyToMany(mappedBy = "students")
+    private List<Course> courseeList = new ArrayList<>();
 
     @Override
     public String toString() {
-        return "Student02{" +
+        return "Ogrenci{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", schoolNumber=" + schoolNumber +
-                ", books=" + books +
+               // ", courseeList=" + courseeList +
                 '}';
     }
 
@@ -56,11 +57,11 @@ public class Student02 {
         this.schoolNumber = schoolNumber;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Course> getCourseeList() {
+        return courseeList;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setCourseeList(List<Course> courseeList) {
+        this.courseeList = courseeList;
     }
 }
